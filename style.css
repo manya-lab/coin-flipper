@@ -1,0 +1,144 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: white;
+
+    padding: 40px;
+    border-radius: 20px;
+
+    width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h1 {
+    color: #243b55;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.coin-container {
+    width: 150px;
+    height: 150px;
+
+    margin: 35px auto;
+    perspective: 1000px;
+}
+
+.coin {
+    width: 150px;
+    height: 150px;
+
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.heads, .tails {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(145deg, #ffe066, #d4a017);
+
+    border: 7px solid #b8860b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 65px;
+    font-weight: bold;
+    color: #513900;
+
+    backface-visibility: hidden;
+}
+
+.tails {
+    transform: rotateY(180deg);
+}
+
+.coin.flipping {
+    animation: flip 1.5s ease-in-out;
+}
+
+@keyframes flip {
+    0% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    25% {
+        transform: translateY(-90px) rotateY(180deg);
+    }
+
+    50% {
+        transform: translateY(0) rotateY(360deg);
+    }
+
+    75% {
+        transform: translateY(-60px) rotateY(540deg);
+    }
+
+    100% {
+        transform: translateY(0) rotateY(720deg);
+    }
+}
+
+button {
+    padding: 13px 30px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 25px;
+
+    background: #243b55;
+    color: white;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #141e30;
+    transform: scale(1.05);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#result {
+    margin-top: 25px;
+    color: #243b55;
+}
+
+.message {
+    margin-top: 10px;
+    color: #777;
+    font-size: 14px;
+}
